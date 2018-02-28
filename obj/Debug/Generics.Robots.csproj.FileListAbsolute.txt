@@ -1,0 +1,2 @@
+C:\MyRepo\Generics.Robots\obj\Debug\Generics.Robots.csprojResolveAssemblyReference.cache
+C:\MyRepo\Generics.Robots\obj\Debug\Generics.Robots.csproj.CoreCompileInputs.cache
