@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\MyRepo\Generics.Robots\bin\Debug\Generics.Robots.exe.config
 C:\MyRepo\Generics.Robots\bin\Debug\Generics.Robots.exe
 C:\MyRepo\Generics.Robots\bin\Debug\Generics.Robots.pdb
@@ -7,3 +8,5 @@ C:\MyRepo\Generics.Robots\obj\Debug\Generics.Robots.csprojResolveAssemblyReferen
 C:\MyRepo\Generics.Robots\obj\Debug\Generics.Robots.csproj.CoreCompileInputs.cache
 C:\MyRepo\Generics.Robots\obj\Debug\Generics.Robots.exe
 C:\MyRepo\Generics.Robots\obj\Debug\Generics.Robots.pdb
+=======
+>>>>>>> 0e39287bfc67ea75c6d98839f882fb1ca0a4381e

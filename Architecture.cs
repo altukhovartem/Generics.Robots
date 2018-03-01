@@ -7,38 +7,38 @@ using System.Threading.Tasks;
 
 namespace Generics.Robots
 {
-    public abstract class RobotAI
+    public abstract class RobotAI<T> 
     {
-        public abstract object GetCommand();
+        public abstract T GetCommand();
     }
 
-    public class ShooterAI : RobotAI
+    public class ShooterAI<T> : RobotAI<T>
     {
         int counter = 1;
 
-        public override object GetCommand()
+        public override T GetCommand()
         {
             return ShooterCommand.ForCounter(counter++);
         }
     }
 
-    public class BuilderAI : RobotAI
+    public class BuilderAI<T> : RobotAI<T>
     {
         int counter = 1;
-        public override object GetCommand()
+        public override T GetCommand()
         {
             return BuilderCommand.ForCounter(counter++);
         }
     }
 
-    public abstract class Device
+    public abstract class Device<T>
     {
-        public abstract string ExecuteCommand(object command);
+        public abstract string ExecuteCommand(T command);
     }
 
-    public class Mover : Device
+    public class Mover<T> : Device<T>
     {
-        public override string ExecuteCommand(object _command)
+        public override string ExecuteCommand(T _command)
         {
             var command = _command as IMoveCommand;
             if (command == null)
@@ -49,12 +49,12 @@ namespace Generics.Robots
 
 
 
-    public class Robot
+    public class Robot<T>
     {
-        RobotAI ai;
-        Device device;
+        RobotAI<T> ai;
+        Device<T> device;
 
-        public Robot(RobotAI ai, Device executor)
+        public Robot(RobotAI<T> ai, Device<T> executor)
         {
             this.ai = ai;
             this.device = executor;
@@ -72,9 +72,9 @@ namespace Generics.Robots
 
         }
 
-        public static Robot Create(RobotAI ai, Device executor)
+        public static Robot<T> Create(RobotAI<T> ai, Device<T> executor)
         {
-            return new Robot(ai, executor);
+            return new Robot<T>(ai, executor);
         }
     }
     
