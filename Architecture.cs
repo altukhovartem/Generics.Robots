@@ -7,13 +7,19 @@ using System.Threading.Tasks;
 
 namespace Generics.Robots
 {
-    public abstract class RobotAI<T> 
-    {
+
+	public interface IRobotic<out T>
+	{
+		T GetCommand();
+	}
+
+    public abstract class RobotAI<T> : IRobotic<T>
+	{ 
         public abstract T GetCommand();
     }
 
     public class ShooterAI<T> : RobotAI<T>
-    {
+	{
         int counter = 1;
 
         public override T GetCommand()
@@ -23,7 +29,7 @@ namespace Generics.Robots
     }
 
     public class BuilderAI<T> : RobotAI<T>
-    {
+	{
         int counter = 1;
         public override T GetCommand()
         {
@@ -31,13 +37,18 @@ namespace Generics.Robots
         }
     }
 
-    public abstract class Device<T>
-    {
+	public interface IDevicable<in T>
+	{
+		string ExecuteCommand(T command);
+	}
+
+	public abstract class Device<T>: IDevicable<T>
+	{
         public abstract string ExecuteCommand(T command);
     }
 
-    public class Mover<T> : Device<T>
-    {
+    public class Mover<T>  : Device<T>
+	{
         public override string ExecuteCommand(T _command)
         {
             var command = _command as IMoveCommand;
@@ -50,7 +61,7 @@ namespace Generics.Robots
 
 
     public class Robot<T>
-    {
+	{
         RobotAI<T> ai;
         Device<T> device;
 
